@@ -1,4 +1,4 @@
-
+import pygame;
 def chaos():
     print("chaos")
     y = eval(input("How much should I print? "))
@@ -20,6 +20,15 @@ def pbJ():
     if(done == "n"):
         print("well too bad we can't buy any more groceries and now we're out of " + second_food)
 
+def window():
+    (width, height) = (300, 200)
+    screen = pygame.display.set_mode((width, height))
+    pygame.display.flip()
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
 def Faran():
     c = int(input("What is the current temp? (C): "))
@@ -34,7 +43,7 @@ def Scorese():
     for i in range(int(scores_amount)):
         n = input("Score: ")
         scores.append(int(n))
-    current_score = 0;
+    current_score = 0
     for i in range(int(scores_amount)):
         if(i != 0):
             current_score = scores[i] + scores[i - 1] / len(scores)
@@ -53,7 +62,7 @@ def iteration():
         print(c)
 
 def main():
-    iteration()
+    window()
 
 if __name__=="__main__": 
     main() 
