@@ -29,6 +29,7 @@ def window():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+                #da
 
 def Faran():
     c = int(input("What is the current temp? (C): "))
