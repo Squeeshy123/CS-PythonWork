@@ -1,11 +1,11 @@
 import pygame;
 def chaos():
-    print("chaos")
-    y = eval(input("How much should I print? "))
-    x = eval(input("Number between 0 and 1: "))
-    for i in range(y):
-        x = 3.9 * x * (1-x)
-        print(x)
+    print("chaos") # output
+    y = eval(input("How much should I print? ")) # Input
+    x = eval(input("Number between 0 and 1: ")) # Input
+    for i in range(y): # Loop
+        x = 3.9 * x * (1-x) # assignment
+        print(x) # output
 # 3.9 * 0.15 * (1 - 0.15)
 
 def pbJ():
@@ -32,6 +32,7 @@ def window():
                 #da
 
 def Faran():
+    print("Hey this is a program to convert the normal temprature to american temprature")
     c = int(input("What is the current temp? (C): "))
     f =  9 / 5  * c + 32
     print(str(c) + " is " + str(f) + " in Fahrenheit")
@@ -51,6 +52,11 @@ def Scorese():
         else:
             print("not enough data, yet.....")
     print(current_score)
+def test():
+    print("start")
+    for i in range(0): 
+        print("hello")
+    print("end")
 
 def brr():
     i = 0
@@ -63,52 +69,7 @@ def iteration():
         print(c)
 
 def main():
-    window()
+    Faran()
 
 if __name__=="__main__": 
     main() 
-"""
-    True or False
-        False
-        True
-        True
-        False
-        False
-        True
-        False
-        True
-        False
-        False
-
-    Multiple Choice
-        B
-        D
-        C
-        B
-        B
-        D
-        B
-        B
-        C
-        D
-
-    Compare and contrast
-    
-    What the computer is made of vs what is on the computer
-        A set of calculations to execute vs a collection of functions performing together
-    The language that computers use and the language that humans use
-        An interpreter does one statement and the compiler scans the whole program
-
-
-The 5 parts
-    The way the computer wants it and the way that humans can understand it
-        Input devices are such as keyboard and mouse that will tell the cpu that something happened
-        The cpu is the brains of the operation and can crunch number and equations, as long as it’s told what to do
-        Main memory saves all the long term data, like files programs and cat pictures.
-        Secondary memory is short term data storage and will save stuff like where your mouse is on the screen or what netflix show your watching
-        Output devices are mainly the monitor and will display what the cpu tells it.
-
-
-
-        
-"""
