@@ -1,4 +1,6 @@
 import pygame;
+import webbrowser
+
 # Chaotic function
 def chaos():
     print("chaos") # output
@@ -35,12 +37,14 @@ def window():
 
 # Celsuis to Fahrenheit calculator
 def Faran():
-    c = eval(input("How many temprat ures do you want to convert?: "))
+    webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
+    c = eval(input("How many tempratures do you want to convert?: "))
     for i in range(0, c):
         print("Hey this is a program to convert the normal temprature to american temprature")
         c = int(input("What is the current temp? (C): "))
         f =  9 / 5  * c + 32
         print(str(c) + " is " + str(f) + " in Fahrenheit")
+        
     print("Done")
 
 # Average score Calculator
