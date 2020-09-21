@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import pygame;
 import webbrowser
 
+=======
+#import pygame
+>>>>>>> cd349e8de4ecbf1d6f9c93d9a1db5c4a8ccde190
 # Chaotic function
 def chaos():
     print("chaos") # output
@@ -10,6 +14,15 @@ def chaos():
         x = 3.9 * x * (1-x) # assignment
         print(x) # output
 # 3.9 * 0.15 * (1 - 0.15)
+
+
+def invest(): # Investment calculator
+    principal = eval(input("Enter the initial investment value: "))
+    apr = eval(input("Enter the annual gain: "))
+    years_held = eval(input("How many years have you owned this: "))
+    for i in range(years_held):
+        principal = principal * (1 + apr)
+    print("The value in", years_held, "years is: ", principal)
 
 # make a sandwich function
 def pbJ():
@@ -80,7 +93,7 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
 
 
 def main():
-    Faran() # change this function to whatever 
+    invest() # change this function to whatever 
 
 if __name__=="__main__": # runs the main function
     main() 
