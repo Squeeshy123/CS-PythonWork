@@ -60,7 +60,10 @@ def Faran():
         
     print("Done")
 
-# Average score Calculator
+def InvestmentCalculator():
+
+
+# Average score Calculator 
 def Scorsese():
     scores = list()
     scores_amount = input("Enter how many elements you want:") # Ask how many scores there are
@@ -75,6 +78,7 @@ def Scorsese():
         else:
             print("not enough data, yet.....")
     print(current_score) # prints score once calculations are done
+
 def test(): # just a test function, Ignore.
     print("start")
     for i in range(0): 
@@ -93,7 +97,11 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
 
 
 def main():
+<<<<<<< Updated upstream
     invest() # change this function to whatever 
+=======
+    Scorsese() # change this function to whatever
+>>>>>>> Stashed changes
 
 if __name__=="__main__": # runs the main function
     main() 
