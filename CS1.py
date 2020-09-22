@@ -100,6 +100,20 @@ def multiply():
     factor1 = eval(input("First factor: "))
     factor2 = eval(input("Second factor: "))
     print(factor1 * factor2)
+def divide():
+    dividend = eval(input("Whats the dividend: "))
+    divisor = eval(input("Whats the divisor: "))
+    print(dividend / divisor)
+def add():
+    add1 = eval(input("First number to add: "))
+    add2 = eval(input("Second number to add: "))
+    print(add1 + add2)
+    
+def subtract():
+    sub1 = eval(input("Number to subtract from: "))
+    sub2 = eval(input("Number to subtract by: "))
+    print(sub1 - sub2)
+
 
 def calculator():
     b = true
@@ -111,29 +125,13 @@ def calculator():
         if(function == "add"): case = 3
         if(function == "subtract"): case = 4
         if(function == "stop"): case = 5
-        switch(case)
+        switch =
         {
-            case 1: 
-                
-                break;
-            case 2:
-                dividend = eval(input("Whats the dividend: "))
-                divisor = eval(input("Whats the divisor: "))
-                print(dividend / divisor)
-                break;
-            case 3:
-                add1 = eval(input("First number to add: "))
-                add2 = eval(input("Second number to add: "))
-                print(add1 + add2)
-                break;
-            case 4:
-                sub1 = eval(input("Number to subtract from: "))
-                sub2 = eval(input("Number to subtract by: "))
-                print(sub1 - sub2)
-                break;
-            case 5: 
-                b = false
-                break;
+            1: multiply
+            2: divide
+            3: add
+            4: subtract
+            5: b = false
         }
 
 
