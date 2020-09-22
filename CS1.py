@@ -96,43 +96,47 @@ def test(): # just a test function, Ignore.
         print("hello")
     print("end")
 
-def multiply():
+def multiply(b):
     factor1 = eval(input("First factor: "))
     factor2 = eval(input("Second factor: "))
     print(factor1 * factor2)
-def divide():
+def divide(b):
     dividend = eval(input("Whats the dividend: "))
     divisor = eval(input("Whats the divisor: "))
     print(dividend / divisor)
-def add():
+def add(b):
     add1 = eval(input("First number to add: "))
     add2 = eval(input("Second number to add: "))
     print(add1 + add2)
     
-def subtract():
+def subtract(b):
     sub1 = eval(input("Number to subtract from: "))
     sub2 = eval(input("Number to subtract by: "))
     print(sub1 - sub2)
 
+def stopCalc(b):
+    b = False
 
 def calculator():
-    b = true
-    while(b == true):
-        case = 1
-        function = input("What operator do you want to use? multiply, divide, add, subtract, stop")
-        if(function == "multiply"): case = 1
-        if(function == "divide"): case = 2
-        if(function == "add"): case = 3
-        if(function == "subtract"): case = 4
-        if(function == "stop"): case = 5
-        switch =
-        {
-            1: multiply
-            2: divide
-            3: add
-            4: subtract
-            5: b = false
-        }
+    b = True
+    amount = eval(input("How many calculations do you want to do? \n"))
+    for i in range(0, amount):
+        if(b == True):
+            case = 5
+            function = input("What operator do you want to use? multiply, divide, add, subtract, stop \n")
+            if(function == "multiply"): case = 1
+            if(function == "divide"): case = 2
+            if(function == "add"): case = 3
+            if(function == "subtract"): case = 4
+            if(function == "stop"): case = 5
+            switcher = {
+                1: multiply,
+                2: divide,
+                3: add,
+                4: subtract,
+                5: stopCalc
+            }
+            switcher[case](b)
 
 
 def brr(): # You can't multiply strings! Watch me.
