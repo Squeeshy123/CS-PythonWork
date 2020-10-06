@@ -24,7 +24,12 @@ def stoneConvert():
     stones = eval(input("How many stones? "))
     pounds = stones * 14
     print(pounds)
-
+def LineSlopeCalculator():
+    x1 = eval(input("X1: "))
+    y1 = eval(input("Y1: "))
+    x2 = eval(input("X2: "))
+    y2 = eval(input("Y2: "))
+    print(float(y1)-float(y2), " / ", float(x1) - float(x2))
 # Converts kilometers into miles
 def kilometerConvert():
     print("This program converts kilometers into miles")
@@ -151,7 +156,7 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
 
 
 def main():
-    calculator() # change this function to whatever 
+    LineSlopeCalculator() # change this function to whatever 
 
 if __name__=="__main__": # runs the main function
     main() 
