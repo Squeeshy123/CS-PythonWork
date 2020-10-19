@@ -1,4 +1,4 @@
-#import pygame
+
 # Chaotic function
 def chaos():
     print("chaos") # output
@@ -60,12 +60,14 @@ def window():
 
 # Celsuis to Fahrenheit calculator
 def Faran():
+    webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
     c = eval(input("How many tempratures do you want to convert?: "))
     for i in range(0, c):
         print("Hey this is a program to convert the normal temprature to american temprature")
         c = int(input("What is the current temp? (C): "))
         f =  9 / 5  * c + 32
         print(str(c) + " is " + str(f) + " in Fahrenheit")
+        
     print("Done")
 
 def Faran2():
@@ -76,6 +78,8 @@ def Faran2():
     print("Done")
 
 # Average score Calculator
+def InvestmentCalculator():
+
 def Scorsese():
     scores = list()
     scores_amount = input("Enter how many elements you want:") # Ask how many scores there are
@@ -90,6 +94,7 @@ def Scorsese():
         else:
             print("not enough data, yet.....")
     print(current_score) # prints score once calculations are done
+
 def test(): # just a test function, Ignore.
     print("start")
     for i in range(0): 
@@ -152,6 +157,10 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
 
 def main():
     calculator() # change this function to whatever 
+invest() # change this function to whatever 
+
+    Scorsese() # change this function to whatever
+
 
 if __name__=="__main__": # runs the main function
     main() 
