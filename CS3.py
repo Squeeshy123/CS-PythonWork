@@ -3,7 +3,7 @@ import math
 import datetime
 pi = math.pi
 
-def change():
+def change(): # Calculate Money with amount of coins
     print("change counter \n")
     print("Enter your coins")
     quarters = eval(input("Quarters: "))
@@ -13,7 +13,7 @@ def change():
     print("your change is: ")
     print("     $", quarters * 0.25 + dimes * 0.1 + nickels * 0.05 + pennies * 0.01, sep="")
 
-def quadratic():
+def quadratic(): # Quadratic equation
     lst = [] 
      
     n = int(input("Enter number of elements : ")) 
@@ -26,14 +26,14 @@ def quadratic():
         
     print(np.roots(lst)) 
 
-def numbers(n, r, a, p, q):
+def numbers(n, r, a, p, q): # Different calculations
     print((3 + 4) * 5)
     print((n*(n-1)) / 2)
-    print((4 * math.pi * r) ** 2)
-    print(math.sqrt(r*(math.cos(a)) + r*(math.sin(a))))
-    print((p[0] - q[0]) / (p[1] - q[1]))
+    print((4 * math.pi * r) ** 2) # Circle area
+    print(math.sqrt(r*(math.cos(a)) + r*(math.sin(a)))) #
+    print((p[0] - q[0]) / (p[1] - q[1])) # Slope calculation
 
-def ranges():
+def ranges(): # Ranges between numbers
     for i in range(5):
         print(i, sep="")
     print("--------")
@@ -50,7 +50,7 @@ def ranges():
         print(i, sep="")
     print("--------")
 
-def Mults():
+def Mults(): # Multiplying different numbers
     '''for i in [1,3,5,7,9]:
         print(i, ":", i**3)
     print(i)'''
@@ -66,10 +66,10 @@ def Mults():
         print(i)
     print(ans)
 
-def calculateDistance(x1,y1,x2,y2):
+def calculateDistance(x1,y1,x2,y2): # Distance between 2 2d point
     dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
     return dist
-def calculateVolume(r):
+def calculateVolume(r): # Calculate volum of sphere
     v = 4 / 3*pi*r**3
     a = 4*pi*r**2
     return str(v) + ", " + str(a)
