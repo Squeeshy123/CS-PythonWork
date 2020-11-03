@@ -208,6 +208,52 @@ def Winter():
     win.getMouse()
     win.close()
 
+
+def dice():
+    win = GraphWin("Dice", 800, 800)
+    def drawDice(count, location, size):
+        drawSquare(location.getX(), location.getY(), size, False, win)
+        center = Point(location.getX() + (size/2), location.getY() + (size/2))
+        if count == 1:
+            Circle(center, 5).draw(win)
+        if count == 2:
+            Circle(Point(center.getX() + 10, center.getY()), 5).draw(win)
+            Circle(Point(center.getX() - 10, center.getY()), 5).draw(win)
+        if count == 3:
+            Circle(Point(center.getX() + 15, center.getY()), 5).draw(win)
+            Circle(Point(center.getX(), center.getY()), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY()), 5).draw(win)
+        if count == 4:
+            Circle(Point(center.getX() + 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() + 15, center.getY() - 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() - 15), 5).draw(win)
+        if count == 5:
+            Circle(Point(center.getX() + 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() + 15, center.getY() - 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() - 15), 5).draw(win)
+            Circle(Point(center.getX(), center.getY()), 5).draw(win)
+        if count == 6:
+            Circle(Point(center.getX() + 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() + 15), 5).draw(win)
+            Circle(Point(center.getX() + 15, center.getY() - 15), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY() - 15), 5).draw(win)
+            Circle(Point(center.getX() + 15, center.getY()), 5).draw(win)
+            Circle(Point(center.getX() - 15, center.getY()), 5).draw(win)
+
+    for i in range(1,6):
+        drawDice(randint(1, 6), Point((800 / 6) + (75 * i), 400), 50)
+    win.getMouse()
+    win.close()
+
+
+
+
+
+def TicTacToe():
+    pass
+
 def main():
-    TargetPractice()
+    dice()
 main()
