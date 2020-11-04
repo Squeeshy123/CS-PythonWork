@@ -248,12 +248,37 @@ def dice():
     win.close()
 
 
+def CircleIntersection():
+    cScale = 25
+    cCenter = Point(400,410)
+    win = GraphWin("Dice", 800, 800)
+    c = Circle(cCenter, cScale).draw(win)
+    l = Line(Point(0, 400), Point(800, 400)).draw(win)
+    def reDraw():
+        c = Circle(cCenter, cScale).draw(win)
+        l = Line(Point(0, 400), Point(800, 400)).draw(win)
+    reDraw()
+    def collisionUpdate():
+        for x in range(0, int(l.getP2().getX())):
+            for y in range(0, int(l.getP2().getY())):
+                if x == cCenter.getX() + cScale or x == cCenter.getX() - cScale:
+                    if y == cCenter.getY() + cScale or y == cCenter.getY() - cScale:
+                        Circle(Point(y,400), 5).draw(win)
+    collisionUpdate
+    for i in range(0,100):
+        win.getMouse()
+        cCenter = Point(win.getMouse().getX(),
+                        win.getMouse().getY())
+        reDraw()
+        collisionUpdate()
 
+    win.getMouse()
+    win.close()
 
 
 def TicTacToe():
     pass
 
 def main():
-    dice()
+    CircleIntersection()
 main()
