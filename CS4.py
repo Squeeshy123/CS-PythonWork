@@ -247,33 +247,93 @@ def dice():
     win.getMouse()
     win.close()
 
+def isInside(circle_x, circle_y, rad, x, y): 
+      
+    # Compare radius of circle 
+    # with distance of its center 
+    # from given point 
+    if ((x - circle_x) * (x - circle_x) + 
+        (y - circle_y) * (y - circle_y) <= rad * rad): 
+        return True; 
+    else: 
+        return False; 
 
 def CircleIntersection():
     cScale = 25
     cCenter = Point(400,410)
-    win = GraphWin("Dice", 800, 800)
-    c = Circle(cCenter, cScale).draw(win)
-    l = Line(Point(0, 400), Point(800, 400)).draw(win)
+
+    randY1 = randint(0, 800)
+    randY2 = randint(0, 800)
+
+    win = GraphWin("Circle Intersection", 800, 800)
+
+
+    c = Circle(cCenter, cScale)
+    l = Line(Point(0, float(randY1)), Point(800, float(randY2))).draw(win)
+
     def reDraw():
         c = Circle(cCenter, cScale).draw(win)
-        l = Line(Point(0, 400), Point(800, 400)).draw(win)
+        l = Line(Point(0, float(randY1)), Point(800, float(randY2))).draw(win)
     reDraw()
+
+
     def collisionUpdate():
-        for x in range(0, int(l.getP2().getX())):
-            for y in range(0, int(l.getP2().getY())):
-                if x == cCenter.getX() + cScale or x == cCenter.getX() - cScale:
-                    if y == cCenter.getY() + cScale or y == cCenter.getY() - cScale:
-                        Circle(Point(y,400), 5).draw(win)
-    collisionUpdate
+        for x in range(0, 800):
+            for y in range(randY1, randY2 + 1):
+                if isInside(cCenter.getX(), cCenter.getY(), cScale, x, y):
+                    Circle(Point(x,y), 1).draw(win)
+
+    
     for i in range(0,100):
-        win.getMouse()
-        cCenter = Point(win.getMouse().getX(),
-                        win.getMouse().getY())
+        mouse = win.getMouse()
+        cCenter = Point(mouse.getX(),
+                        mouse.getY())
         reDraw()
         collisionUpdate()
 
     win.getMouse()
     win.close()
+
+def LineInfo():
+    win = GraphWin("Dice", 800, 800)
+
+    info1 = win.getMouse()
+    x1 = info1.getX()
+    y1 = info1.getY()
+
+    info2 = win.getMouse()
+    x2 = info2.getX()
+    y2 = info2.getY()
+
+    line = Line(Point(x1,y1), Point(x2,y2)).draw(win)
+    dX = x2 - x1
+    dY = y2 - y1
+
+    midPoint = Circle(Point((x1+x2)/2, (y1+y2)/2), 5).draw(win)
+    midPoint.setFill("cyan")
+    slopePoint = Point(x1,y1)
+    for i in range(0,1):
+        if x1 != x2:
+            slopePoint = Point(x2,y2)
+            if(x1 <= x2):
+                Line(slopePoint, Point(slopePoint.getX() - dX, slopePoint.getY() )).draw(win)
+                if(y1<=y2):
+                    Line(Point(slopePoint.getX() - dX, slopePoint.getY() ), Point(slopePoint.getX() - dX, slopePoint.getY() - dY)).draw(win)
+                else:
+                    Line(Point(slopePoint.getX() - dX, slopePoint.getY() ), Point(slopePoint.getX() - dX, slopePoint.getY() + dY)).draw(win)
+            else:
+                slopePoint = Point(x1,y1)
+                if(y1<=y2):
+                    Line(Point(slopePoint.getX() + dX, slopePoint.getY() ), Point(slopePoint.getX() + dX, slopePoint.getY() - dY)).draw(win)
+                else:
+                    Line(Point(slopePoint.getX() + dX, slopePoint.getY() ), Point(slopePoint.getX() + dX, slopePoint.getY() + dY)).draw(win)
+                
+                Line(slopePoint, Point(slopePoint.getX() + dX, slopePoint.getY() )).draw(win)
+                
+
+    slopeInfo = Text(Point(100, 100), 15).draw(win)
+    slopeInfo.setText(str(dX) + "/" + str(dY))
+    win.getMouse()
 
 
 def TicTacToe():
