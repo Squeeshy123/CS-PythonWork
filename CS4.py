@@ -294,17 +294,29 @@ def CircleIntersection():
     win.getMouse()
     win.close()
 
-def lower_point_y(p1, p2):
+def lower_point_y(p1, p2, switch):
     if p1.getY() > p2.getY():
-        return p1
+        if switch:
+            return p2
+        else:
+            return p1
     else:
-        return p2
+        if switch:
+            return p1
+        else:
+            return p2
 
-def leftmost_Point_x(p1,p2):
+def leftmost_Point_x(p1,p2,switch):
     if p1.getX() < p2.getX():
-        return p1
+        if switch:
+            return p2
+        else:
+            return p1
     else:
-        return p2
+        if switch:
+            return p1
+        else:
+            return p2
 
 def LineInfo():
     win = GraphWin("Line Information", 800, 800)
@@ -357,19 +369,20 @@ def House():
     win = GraphWin("Build a house", 800, 800)
     p1 = win.getMouse()
     p2 = win.getMouse()
-
     width = abs(p1.getX() - p2.getX())
-
-    Rectangle(p1,p2).draw(win)
-
-
+    base = Rectangle(p1,p2).draw(win)
     doorp = win.getMouse()
-    lowerp = lower_point_y(p1,p2)
-
-    Rectangle(Point(doorp.getX() - width/5, lowerp.getY()), Point(doorp.getX(), doorp.getY())).draw(win)
-
-
+    lowerp = lower_point_y(p1,p2, False)
+    midpoint = Point((base.getP1().getX() + base.getP2().getX())/2, (base.getP1().getY() + base.getP2().getY())/2)
+    Rectangle(Point(doorp.getX() - ((width/5) / 2), lowerp.getY()), Point(doorp.getX() + ((width/5) / 2), doorp.getY())).draw(win)
+    roof = win.getMouse()
+    bp1 = base.getP1()
+    bp2 = base.getP2()
+    Polygon(Point(leftmost_Point_x(bp1,bp2, False).getX(), lower_point_y(bp1,bp2, True).getY()), Point(leftmost_Point_x(bp1,bp2, True).getX(), lower_point_y(bp1,bp2, True).getY()), Point(midpoint.getX(), roof.getY())).draw(win)
+    window = win.getMouse()
+    Rectangle(Point(window.getX() + ((width/5) / 4), window.getY() + ((width/5) / 4)), Point(window.getX() - ((width/5) / 4), window.getY() - ((width/5) / 4))).draw(win)
     win.getMouse()
+    
 
 def distance(p1,p2):
     return math.sqrt(abs((p1.getX() - p2.getX()) + (p1.getY() - p2.getY())))
@@ -400,5 +413,5 @@ def TicTacToe():
     pass
 
 def main():
-    LineInfo()
+    House()
 main()
