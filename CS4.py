@@ -294,8 +294,20 @@ def CircleIntersection():
     win.getMouse()
     win.close()
 
+def lower_point_y(p1, p2):
+    if p1.getY() > p2.getY():
+        return p1
+    else:
+        return p2
+
+def leftmost_Point_x(p1,p2):
+    if p1.getX() < p2.getX():
+        return p1
+    else:
+        return p2
+
 def LineInfo():
-    win = GraphWin("Dice", 800, 800)
+    win = GraphWin("Line Information", 800, 800)
 
     info1 = win.getMouse()
     x1 = info1.getX()
@@ -313,26 +325,74 @@ def LineInfo():
     midPoint.setFill("cyan")
     slopePoint = Point(x1,y1)
     for i in range(0,1):
-        if x1 != x2:
+        if x1 != x2 or y1 != y2:
             slopePoint = Point(x2,y2)
-            if(x1 <= x2):
-                Line(slopePoint, Point(slopePoint.getX() - dX, slopePoint.getY() )).draw(win)
-                if(y1<=y2):
-                    Line(Point(slopePoint.getX() - dX, slopePoint.getY() ), Point(slopePoint.getX() - dX, slopePoint.getY() - dY)).draw(win)
-                else:
-                    Line(Point(slopePoint.getX() - dX, slopePoint.getY() ), Point(slopePoint.getX() - dX, slopePoint.getY() + dY)).draw(win)
-            else:
-                slopePoint = Point(x1,y1)
-                if(y1<=y2):
-                    Line(Point(slopePoint.getX() + dX, slopePoint.getY() ), Point(slopePoint.getX() + dX, slopePoint.getY() - dY)).draw(win)
-                else:
-                    Line(Point(slopePoint.getX() + dX, slopePoint.getY() ), Point(slopePoint.getX() + dX, slopePoint.getY() + dY)).draw(win)
-                
-                Line(slopePoint, Point(slopePoint.getX() + dX, slopePoint.getY() )).draw(win)
-                
+            Line(Point(x1 + dX, y1), Point(x1,y1)).draw(win)
+            Line(Point(x1 + dX, y1), Point(x1 + dX, y1 + dY)).draw(win)
 
     slopeInfo = Text(Point(100, 100), 15).draw(win)
-    slopeInfo.setText(str(dX) + "/" + str(dY))
+    slopeInfo.setText(str(int(abs(dX))) + " / " + str(int(abs(dY))))
+    win.getMouse()
+
+
+def rectangleInfo():
+    win = GraphWin("Rectangle Information", 800, 800)
+
+    p1 = win.getMouse()
+    p2 = win.getMouse()
+    width = abs(p1.getX() - p2.getX())
+    length = abs(p1.getY() - p2.getY())
+
+    perimeter = 2*(width+length)
+    area = length*width
+
+    rect = Rectangle(p1,p2).draw(win)
+
+    Text(Point(100,100), "Perimeter: " + perimeter).draw(win)
+    Text(Point(100,150), "Area: " + area).draw(win)
+
+
+
+def House():
+    win = GraphWin("Build a house", 800, 800)
+    p1 = win.getMouse()
+    p2 = win.getMouse()
+
+    width = abs(p1.getX() - p2.getX())
+
+    Rectangle(p1,p2).draw(win)
+
+
+    doorp = win.getMouse()
+    lowerp = lower_point_y(p1,p2)
+
+    Rectangle(Point(doorp.getX() - width/5, lowerp.getY()), Point(doorp.getX(), doorp.getY())).draw(win)
+
+
+    win.getMouse()
+
+def distance(p1,p2):
+    return math.sqrt(abs((p1.getX() - p2.getX()) + (p1.getY() - p2.getY())))
+
+def triangleInfo():
+    win = GraphWin("Triangle Information", 800, 800)
+    p1 = win.getMouse()
+    p2 = win.getMouse()
+    p3 = win.getMouse()
+    Polygon(p1,p2,p3).draw(win)
+    a = distance(p1,p2)
+    b = distance(p2,p3)
+    c = distance(p3,p1)
+
+
+
+    s = ( a + b + c ) / 2
+    print(s*(s-a)*(s-b)*(s-c))
+    area = math.sqrt(s*(s-a)*(s-b)*(s-c))
+
+    Text(Point(100,100), "Area: " + str(area)).draw(win)
+    Text(Point(120, 150), "A side: " + str(a) + "\nB Side: " + str(b) + "\nC Side: " + str(c)).draw(win)
+
     win.getMouse()
 
 
@@ -340,5 +400,5 @@ def TicTacToe():
     pass
 
 def main():
-    CircleIntersection()
+    LineInfo()
 main()
