@@ -247,6 +247,10 @@ def dice():
     win.getMouse()
     win.close()
 
+def distance(p1,p2):
+    return math.sqrt(abs((p1.getX() - p2.getX()) + (p1.getY() - p2.getY())))
+
+
 def isInside(circle_x, circle_y, rad, x, y): 
       
     # Compare radius of circle 
@@ -262,8 +266,8 @@ def CircleIntersection():
     cScale = 25
     cCenter = Point(400,410)
 
-    randY1 = randint(0, 800)
-    randY2 = randint(0, 800)
+    randY1 = randint(0, 400)
+    randY2 = randY1 + randint(0, 400)
 
     win = GraphWin("Circle Intersection", 800, 800)
 
@@ -271,25 +275,18 @@ def CircleIntersection():
     c = Circle(cCenter, cScale)
     l = Line(Point(0, float(randY1)), Point(800, float(randY2))).draw(win)
 
-    def reDraw():
-        c = Circle(cCenter, cScale).draw(win)
-        l = Line(Point(0, float(randY1)), Point(800, float(randY2))).draw(win)
-    reDraw()
-
-
-    def collisionUpdate():
-        for x in range(0, 800):
-            for y in range(randY1, randY2 + 1):
-                if isInside(cCenter.getX(), cCenter.getY(), cScale, x, y):
-                    Circle(Point(x,y), 1).draw(win)
-
-    
-    for i in range(0,100):
-        mouse = win.getMouse()
-        cCenter = Point(mouse.getX(),
-                        mouse.getY())
-        reDraw()
-        collisionUpdate()
+    stepX = l.getP1().getX() - l.getP2().getX()
+    stepY = l.getP1().getY() - l.getP2().getY()
+    print(str(stepX) + " / " + str(stepY))
+    div = 100
+    currentPoint = l.getP1()
+    for x in range(0, int(abs(stepX))):
+        for y in range(randY1, randY2 + 1):
+            currentPoint = Point(currentPoint.getX() + abs(stepX) / div, currentPoint.getX() + stepY / div)
+            Circle(currentPoint, 10).draw(win)
+            #print(currentPoint)
+            
+  
 
     win.getMouse()
     win.close()
@@ -360,8 +357,9 @@ def rectangleInfo():
 
     rect = Rectangle(p1,p2).draw(win)
 
-    Text(Point(100,100), "Perimeter: " + perimeter).draw(win)
-    Text(Point(100,150), "Area: " + area).draw(win)
+    Text(Point(100,100), "Perimeter: " + str(perimeter)).draw(win)
+    Text(Point(100,150), "Area: " + str(area/100)).draw(win)
+    win.getMouse()
 
 
 
@@ -384,8 +382,6 @@ def House():
     win.getMouse()
     
 
-def distance(p1,p2):
-    return math.sqrt(abs((p1.getX() - p2.getX()) + (p1.getY() - p2.getY())))
 
 def triangleInfo():
     win = GraphWin("Triangle Information", 800, 800)
@@ -413,5 +409,18 @@ def TicTacToe():
     pass
 
 def main():
+    InvestmentGraph() # Runs The Investment Graph Program
+    ClickingCircles() # Runs the program to click circles
+    ClickingSquares()
+    TargetPractice()
+    Face()
+    Winter()
+    dice()
+    CircleIntersection()
+    LineInfo()
+    rectangleInfo()
     House()
-main()
+    triangleInfo()
+
+
+main()#Runs Main
