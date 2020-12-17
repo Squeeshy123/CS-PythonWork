@@ -409,8 +409,8 @@ def TicTacToe():
     pass
 
 def main():
-    InvestmentGraph() # Runs The Investment Graph Program
-    ClickingCircles() # Runs the program to click circles
+    InvestmentGraph()
+    ClickingCircles()
     ClickingSquares()
     TargetPractice()
     Face()
@@ -423,4 +423,4 @@ def main():
     triangleInfo()
 
 
-main()#Runs Main
+main()

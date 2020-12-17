@@ -44,7 +44,7 @@ def pbJ():
         print("great!")
     if(done == "n"):
         print("well too bad we can't buy any more groceries and now we're out of " + second_food)
-
+'''
 # makes a basic window using pygame (not part of the chapter)
 def window():
     (width, height) = (300, 200)
@@ -55,12 +55,12 @@ def window():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
+'''
 
 
 # Celsuis to Fahrenheit calculator
 def Faran():
-    webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
+    #webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
     c = eval(input("How many tempratures do you want to convert?: "))
     for i in range(0, c):
         print("Hey this is a program to convert the normal temprature to american temprature")
@@ -71,6 +71,7 @@ def Faran():
     print("Done")
 
 def Faran2():
+    c = eval(input("What temprature do you want to convert? "))
     for i in range(0, 10):
         print("this program shows a data table of celsius conversion")
         f =  9 / 5  * i + 32
@@ -79,7 +80,7 @@ def Faran2():
 
 # Average score Calculator
 def InvestmentCalculator():
-
+    pass
 def Scorsese():
     scores = list()
     scores_amount = input("Enter how many elements you want:") # Ask how many scores there are
@@ -155,11 +156,8 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
         print(c)
 
 
-def main():
-    calculator() # change this function to whatever 
-invest() # change this function to whatever 
-
-    Scorsese() # change this function to whatever
+def main(): 
+    chaos() # change this function to whatever
 
 
 if __name__=="__main__": # runs the main function
