@@ -1,5 +1,6 @@
 from string import *
 import numpy as np
+from graphics import *
 
 def inRange(num, min, max): # NITQ
     if num > min and num < max:
@@ -16,7 +17,7 @@ def dateconvert(): # PE 1
 # Make user friendly!!
 
 def CSProffessor1(): # PE 2
-    print("---CS Proffessor Grade Converter---")
+    print("Grade 1 to 5 calculator: Calculate the grades A through F given a scale of 0 to 5")
     letter_grades = ['A','B','C','D','F','F'] # List of possible grades
     in_grade = eval(input("Input the students grade: ")) # Check for students grade
     if in_grade <= 5 and in_grade >= 0: # Check if the grade is valid
@@ -24,7 +25,7 @@ def CSProffessor1(): # PE 2
     else:
         print("Invalid Grade")
 def CSProffessor2(): # PE 3
-    print("--CS Professor Grade Converter V2---")
+    print("Grade 1-100 Calculator: Calculates grades A through F given a number 1 through 100")
     in_grade = eval(input("Input the students grade: "))
     grade = ['A','B','C','D','F'] # List of possible grades
     if inRange(in_grade, 90, 100):
@@ -45,7 +46,7 @@ def CSProffessor2(): # PE 3
 
 
 def AcronymGenerator(): # PE 4
-    print("---Acronym Generator---")
+    print("Acronym Generator: Generates an acronym from a sentance.")
     phrase = input("What is your phrase? ")
     acro = phrase[0]
     for i in range(0, len(phrase)):
@@ -106,18 +107,23 @@ def WordCounter(): # PE 9
         if sentance[i] == ' ':
                     count += 1
     print(count)
+
+def average_of_array(arr):
+    return sum(arr) / len(arr)
+
 def wordAverage(): # PE 10
-    print("Word Counter: Count the amount of words used in a sentance.")
-    sentance = input("What sentance do you need word counting for? ")
-    count = 1
-    word_length = []
+    print("Word Counter: Calculates the average length of words in a sentance.")
+    sentance = input("What sentance do you need the average of? ")
+    count = 0
+    word_lengths = [0]
     for i in range(0, len(sentance)):
-        word_length.append(0)
         if sentance[i] == ' ':
-                    count += 1
+            word_lengths.append(0)
+            count += 1
         else:
-            word_length[count-1] += 1
-    print(np.mean(word_length))
+            word_lengths[count] += 1
+    print("Length of " + str(word_lengths))
+    print(average_of_array(word_lengths))
 
 def calculateChaos(number, loops):
     indexes = [3.9 * number * (1-number)]
@@ -127,7 +133,7 @@ def calculateChaos(number, loops):
 
 
 def chaos(): # PE 11
-    print("Calcualate the Chaos of floating point values.") # output
+    print("This program calcualates the Chaos of floating point values and evaluates.") # output
     numbers = eval(input("How Many numbers would you like to calculate? ")) # Input
     num = []
     for a in range(numbers):
@@ -156,7 +162,8 @@ def chaos(): # PE 11
     print(fin)
 
 
-def Linux_WC():
+def Linux_WC(): # PE 14
+    print("This program acts like the Linux program WC which counts the words in a file")
     File_path = input("What file to read? ")
     f = open(File_path, 'r')
     string = f.read()
@@ -171,8 +178,34 @@ def Linux_WC():
     print(string)
     f.close()
 
+def hasNumber(string):
+    iss = True
+    for i in range(0, len(string)):
+        if iss != False and (i == "1" or i == "2" or i == "3" or i == "4" or i == "5" or i == "6" or i == "7" or i == "8" or i == "9" or i == "0"):
+            iss = True
+        else:
+            iss = False
+    return iss
+
+
+def FileGrapher(): # PE 15
+    file_to_open = input("What file do you want to open?")
+    filea = open(file_to_open,'r')
+    win = GraphWin("File Grapher", 800, 800)
+    i = 0
+    numbers = []
+    read_file = filea.read()
+    split_file = read_file.split()
+    print(split_file)
+    for i in range(0, len(split_file)):
+        if not split_file[i].isnumeric():
+            Text(Point(50, 30+i*20), split_file[i]).draw(win)
+            Rectangle(Point(100, 20 + i*20), Point(200 + int(split_file[i + 1]), 30 + i*20)).draw(win)
+            Text(Point(200 + int(split_file[i + 1]), 35 + i*20), split_file[i+1])
+    win.getMouse()
+            
 
 
     
 
-Linux_WC()
+wordAverage()
