@@ -55,7 +55,7 @@ def AcronymGenerator(): # PE 4
     print(acro.upper())
 
 def NumericalNameGenerator(): # PE 5 and 6
-    print("Numerologist claim that they can predict character traits based on your names \"numerical value\"")
+    print("Numerical Name Generator: Numerologist claim that they can predict character traits based on your names \"numerical value\"")
     name = input("What's your name? ")
     value = 0
     for i in range(0, len(name)):
