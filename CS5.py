@@ -17,6 +17,7 @@ def dateconvert(): # PE 1
 # Make user friendly!!
 
 def CSProffessor1(): # PE 2
+    print("This is programming exercise 2")
     print("Grade 1 to 5 calculator: Calculate the grades A through F given a scale of 0 to 5")
     letter_grades = ['A','B','C','D','F','F'] # List of possible grades
     in_grade = eval(input("Input the students grade: ")) # Check for students grade
@@ -25,6 +26,7 @@ def CSProffessor1(): # PE 2
     else:
         print("Invalid Grade")
 def CSProffessor2(): # PE 3
+    print("This is programming exercise 3")
     print("Grade 1-100 Calculator: Calculates grades A through F given a number 1 through 100")
     in_grade = eval(input("Input the students grade: "))
     grade = ['A','B','C','D','F'] # List of possible grades
@@ -46,6 +48,7 @@ def CSProffessor2(): # PE 3
 
 
 def AcronymGenerator(): # PE 4
+    print("This is programming exercise 4")
     print("Acronym Generator: Generates an acronym from a sentance.")
     phrase = input("What is your phrase? ")
     acro = phrase[0]
@@ -55,6 +58,7 @@ def AcronymGenerator(): # PE 4
     print(acro.upper())
 
 def NumericalNameGenerator(): # PE 5 and 6
+    print("This is programming exercise 5 and 6")
     print("Numerical Name Generator: Numerologist claim that they can predict character traits based on your names \"numerical value\"")
     name = input("What's your name? ")
     value = 0
@@ -63,6 +67,7 @@ def NumericalNameGenerator(): # PE 5 and 6
     print("Your name's numerical value is: " + str(value))
 
 def CaeserCipher(): # PE 7 and 8
+    print("This is programming exercise 7 and 8")
     print("Caeser Cipher Encoder: A Message encoded with a shift amount, so if your message was hello and your shift amount was 1, then the message would be ifmmp") # PE 7
     encode_or_decode = input("Would you like the encode or decode? ")
     if encode_or_decode == "encode":
@@ -100,6 +105,7 @@ def CaeserCipher(): # PE 7 and 8
         print(temp)
 
 def WordCounter(): # PE 9
+    print("This is programming exercise 9")
     print("Word Counter: Count the amount of words used in a sentance.")
     sentance = input("What sentance do you need word counting for? ")
     count = 1
@@ -112,6 +118,7 @@ def average_of_array(arr):
     return sum(arr) / len(arr)
 
 def wordAverage(): # PE 10
+    print("This is programming exercise 10")
     print("Word Counter: Calculates the average length of words in a sentance.")
     sentance = input("What sentance do you need the average of? ")
     count = 0
@@ -133,6 +140,7 @@ def calculateChaos(number, loops):
 
 
 def chaos(): # PE 11
+    print("This is programming exercise 11")
     print("This program calcualates the Chaos of floating point values and evaluates.") # output
     numbers = eval(input("How Many numbers would you like to calculate? ")) # Input
     num = []
@@ -163,6 +171,7 @@ def chaos(): # PE 11
 
 
 def Linux_WC(): # PE 14
+    print("This is programming exercise 14")
     print("This program acts like the Linux program WC which counts the words in a file")
     File_path = input("What file to read? ")
     f = open(File_path, 'r')
@@ -189,6 +198,7 @@ def hasNumber(string):
 
 
 def FileGrapher(): # PE 15
+    print("This is programming exercise 15")
     file_to_open = input("What file do you want to open?")
     filea = open(file_to_open,'r')
     win = GraphWin("File Grapher", 800, 800)
@@ -206,6 +216,16 @@ def FileGrapher(): # PE 15
             
 
 
-    
+CSProffessor1()
+CSProffessor2()
+AcronymGenerator()
+NumericalNameGenerator()
+CaeserCipher()
+WordCounter()
+wordAverage()
+chaos()
+Linux_WC()
+FileGrapher()
+
 
 wordAverage()
