@@ -1,0 +1,3 @@
+Johnny: 64
+Juliean: 3
+Sarah: 100

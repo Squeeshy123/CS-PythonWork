@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import pygame;
-import webbrowser
 
-=======
-#import pygame
->>>>>>> cd349e8de4ecbf1d6f9c93d9a1db5c4a8ccde190
 # Chaotic function
 def chaos():
     print("chaos") # output
@@ -17,12 +11,26 @@ def chaos():
 
 
 def invest(): # Investment calculator
+    years_held = eval(input("How many years have you owned this: "))
+    investment_amount = eval(input("Enter how many times you invested: "))
     principal = eval(input("Enter the initial investment value: "))
     apr = eval(input("Enter the annual gain: "))
-    years_held = eval(input("How many years have you owned this: "))
     for i in range(years_held):
         principal = principal * (1 + apr)
     print("The value in", years_held, "years is: ", principal)
+# Converts stones into pounds
+def stoneConvert():
+    print("This program converts stones into pounds")
+    stones = eval(input("How many stones? "))
+    pounds = stones * 14
+    print(pounds)
+
+# Converts kilometers into miles
+def kilometerConvert():
+    print("This program converts kilometers into miles")
+    kilo = eval(input("How many kilometers? "))
+    miles = kilo * 0.62
+    print(kilo, "kilometers is", miles, "miles")
 
 # make a sandwich function
 def pbJ():
@@ -36,7 +44,7 @@ def pbJ():
         print("great!")
     if(done == "n"):
         print("well too bad we can't buy any more groceries and now we're out of " + second_food)
-
+'''
 # makes a basic window using pygame (not part of the chapter)
 def window():
     (width, height) = (300, 200)
@@ -47,10 +55,12 @@ def window():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+'''
+
 
 # Celsuis to Fahrenheit calculator
 def Faran():
-    webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
+    #webbrowser.open('https://i.pinimg.com/originals/b6/5c/19/b65c19cca145c4610ad6d5d4aab578f6.png')
     c = eval(input("How many tempratures do you want to convert?: "))
     for i in range(0, c):
         print("Hey this is a program to convert the normal temprature to american temprature")
@@ -60,10 +70,17 @@ def Faran():
         
     print("Done")
 
+def Faran2():
+    c = eval(input("What temprature do you want to convert? "))
+    for i in range(0, 10):
+        print("this program shows a data table of celsius conversion")
+        f =  9 / 5  * i + 32
+        print(str(c) + " is " + str(f) + " in Fahrenheit")
+    print("Done")
+
+# Average score Calculator
 def InvestmentCalculator():
-
-
-# Average score Calculator 
+    pass
 def Scorsese():
     scores = list()
     scores_amount = input("Enter how many elements you want:") # Ask how many scores there are
@@ -85,6 +102,49 @@ def test(): # just a test function, Ignore.
         print("hello")
     print("end")
 
+def multiply(b):
+    factor1 = eval(input("First factor: "))
+    factor2 = eval(input("Second factor: "))
+    print(factor1 * factor2)
+def divide(b):
+    dividend = eval(input("Whats the dividend: "))
+    divisor = eval(input("Whats the divisor: "))
+    print(dividend / divisor)
+def add(b):
+    add1 = eval(input("First number to add: "))
+    add2 = eval(input("Second number to add: "))
+    print(add1 + add2)
+    
+def subtract(b):
+    sub1 = eval(input("Number to subtract from: "))
+    sub2 = eval(input("Number to subtract by: "))
+    print(sub1 - sub2)
+
+def stopCalc(b):
+    b = False
+
+def calculator():
+    b = True
+    amount = eval(input("How many calculations do you want to do? \n"))
+    for i in range(0, amount):
+        if(b == True):
+            case = 5
+            function = input("What operator do you want to use? multiply, divide, add, subtract, stop \n")
+            if(function == "multiply"): case = 1
+            if(function == "divide"): case = 2
+            if(function == "add"): case = 3
+            if(function == "subtract"): case = 4
+            if(function == "stop"): case = 5
+            switcher = {
+                1: multiply,
+                2: divide,
+                3: add,
+                4: subtract,
+                5: stopCalc
+            }
+            switcher[case](b)
+
+
 def brr(): # You can't multiply strings! Watch me.
     i = 0
     print("python go " + "b"+ "r" * 100)
@@ -96,12 +156,9 @@ def iteration(): # prints binary numbers up to 327339060789614187001318969682759
         print(c)
 
 
-def main():
-<<<<<<< Updated upstream
-    invest() # change this function to whatever 
-=======
-    Scorsese() # change this function to whatever
->>>>>>> Stashed changes
+def main(): 
+    chaos() # change this function to whatever
+
 
 if __name__=="__main__": # runs the main function
     main() 
