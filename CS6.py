@@ -1,13 +1,12 @@
 # Page 170
 
-####################################################################
-# make sure to add a notification with each function of what it does
-####################################################################
+## RUN THESE PROGRAMS YOURSELF
+
 
 from graphics import *
 
 
-def mcdonald(): # PE 1
+def mcdonald(): # PE 1: Prints old mcdonald had a farm
     def yodel():
         return " Ee-igh, Ee-igh, oh"
     def farm_animal(animal, animal_noise):
@@ -24,7 +23,7 @@ def mcdonald(): # PE 1
     farm_animal("dog", "bark")
     farm_animal("cat", "meow")
     
-def ants_go_marching(spice_lines):
+def ants_go_marching(spice_lines): # PE 2 Ants go marching
     def one_by_one():
         return "the ants go marching one by one"
     def hurrah():
@@ -41,12 +40,12 @@ def ants_go_marching(spice_lines):
     for i in spice_lines:
         print(first_section(i) + end_verse())
 
-def sphereArea(radius):
+def sphereArea(radius): # PE 3 Sphere area and volume
     return pow((4*PI*radius), 2)
 def sphereVolume(radius):
     return (4*PI*radius) 
 
-def sumN(n):
+def sumN(n): # PE 4 sumN and sumNCubes
     a = 0
     for i in range(n):
         a += i+1
@@ -58,25 +57,26 @@ def sumNCubes(n):
     for i in range(n):
         a += pow(i+1, 3)
 
-def squareEach(nums):
+def squareEach(nums): # PE 11 
     for i in range(len(nums)):
         nums[i] = pow(nums[i], 2)
     return nums
 
-def sumList(list):
+def sumList(list): # PE 12
     a = 0
     for i in list:
         a += i
     return a
-def toNumbers(list):
+def toNumbers(list): # PE 13
     for i in range(len(list)):
         list[i] = float(list[i])
     return list
-def drawFace(c, size, win):
+def drawFace(c, size, win): # PE 14
     Circle(c, size).draw(win)
     Circle(Point(c.x, c.y + size/2), size/10).draw(win)
     Circle(Point(c.x + size/2, c.y - size/5), size/15).draw(win)
     Circle(Point(c.x - size/2, c.y - size/5), size/15).draw(win)
+    # Run face_program to test this function
 
 def face_program():
     graphwin = GraphWin("hello",250,250)
@@ -85,7 +85,7 @@ def face_program():
 
 def moveTo(shape, newCenter):
     shape.move(newCenter.x - shape.getCenter().x, newCenter.y - shape.getCenter().y)
-
+    # Run moving_program to test this function.
 
 def moving_program():
     graphwin = GraphWin("hello",250,250)
@@ -96,5 +96,3 @@ def moving_program():
         moveTo(c, graphwin.getMouse())
 
     graphwin.getMouse()
-
-print(toNumbers(["10","5","10"]))
