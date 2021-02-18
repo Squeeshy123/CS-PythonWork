@@ -1,6 +1,5 @@
 # Page 170
 
-## RUN THESE PROGRAMS YOURSELF
 
 
 from graphics import *
